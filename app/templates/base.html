@@ -1,0 +1,14 @@
+{%extends 'bootstrap/base.html'%}
+{%block title%}
+    {%if title%}
+        News App - {{title}}
+    {%else%}
+        News app
+    {%endif%}
+{%endblock title%}
+{%block content%}
+    <div class="container">
+        {%block page_content%}
+        {%endblock page_content%}
+    </div>
+{%endblock content%}
