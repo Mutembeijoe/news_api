@@ -2,6 +2,7 @@ from flask import Flask
 from .config import DevConfig
 from flask_bootstrap import Bootstrap
 
+
 # initialize app
 app = Flask(__name__,instance_relative_config=True)
 bootstrap = Bootstrap(app)
