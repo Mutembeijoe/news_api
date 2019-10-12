@@ -1,12 +1,14 @@
 from app import app
 import urllib.request,json
-from .models import source
+from .models import source,article
 
 Source = source.Source
+Article = article.Article
 
 
 
 all_sources_url = app.config['ALL_SOURCES_URL']
+source_url = app.config['SOURCE_URL']
 api_key = app.config['API_KEY']
 
 
@@ -31,4 +33,28 @@ def get_sources():
 
 
     return sources_list
+
+def get_specific_source(source_id):
+    get_source_url = source_url.format(source_id, api_key)
+    with urllib.request.urlopen(get_source_url) as url:
+        source_raw_data = url.read()
+        source_response = json.loads(source_raw_data)
+
+    articles_list = None
+
+    if source_response['articles']:
+        new_list = []
+        for article in source_response['articles']:
+            title = article['title']
+            author = article['author']
+            image_url = article['urlToImage']
+            date_published= article['publishedAt']
+            article_url= article['url']
+            new_article = Article(title, author, image_url, date_published, article_url)
+            new_list.append(new_article)
+
+        articles_list = new_list
+
+
+    return articles_list
 

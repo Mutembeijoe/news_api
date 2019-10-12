@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template
-from .requests import get_sources
+from .requests import get_sources,get_specific_source
 
 @app.route('/')
 def index():
@@ -11,4 +11,5 @@ def index():
 
 @app.route('/source/<name>')
 def source(name):
+    articles_list = get_specific_source(name)
     return f"<h1>Hello {name}</h1>"
