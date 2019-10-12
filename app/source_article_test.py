@@ -1,7 +1,8 @@
 import unittest
-from .models import source
+from .models import source, article
 
 Source = source.Source
+Article = article.Article
 
 class SourceArticleTest(unittest.TestCase):
     '''
@@ -11,11 +12,18 @@ class SourceArticleTest(unittest.TestCase):
         '''
          Set up method that will run before every Test
         '''
-        self.new_source = Source('abc-news','Abc News','A wordl class news channel')
+        self.new_source = Source('abc-news','Abc News','A world class news channel')
+        self.new_article = Article('dummy_article','john doe','https://s.image.com','2019-10-12T03:11:28Z',"http://abc.com")
 
 
     def test_instance(self):
+
+        print(self.new_source.__class__)
         self.assertTrue(isinstance(self.new_source,Source))
+
+    def test_article_instance(self):
+        print(self.new_article.__class__)
+        self.assertTrue((isinstance(self.new_article,Article)))
 
 
 if __name__ == '__main__':
