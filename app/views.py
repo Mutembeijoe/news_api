@@ -12,4 +12,5 @@ def index():
 @app.route('/source/<name>')
 def source(name):
     articles_list = get_specific_source(name)
-    return f"<h1>Hello {name}</h1>"
+    title = f"{name} articles"
+    return render_template('source_articles.html', articles = articles_list, title=title)

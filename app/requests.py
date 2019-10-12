@@ -50,8 +50,10 @@ def get_specific_source(source_id):
             image_url = article['urlToImage']
             date_published= article['publishedAt']
             article_url= article['url']
-            new_article = Article(title, author, image_url, date_published, article_url)
-            new_list.append(new_article)
+
+            if image_url:
+                new_article = Article(title, author, image_url, date_published, article_url)
+                new_list.append(new_article)
 
         articles_list = new_list
 
