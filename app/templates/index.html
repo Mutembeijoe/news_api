@@ -1,4 +1,23 @@
 {%extends 'base.html'%}
 {%block page_content%}
-Welcome to the home page
+    <ul>
+        {%for source in sources%}
+       <div class="card w-75">
+            <div class="card-body">
+                <h5 class="card-title">{{source.name}}</h5>
+                <p class="card-text">{{source.description}}</p>
+                <a href="#" class="btn btn-primary">View</a>
+            </div>
+       </div>
+
+        <div class="card w-50">
+              <div class="card-body">
+                <h5 class="card-title">{{source.name}}</h5>
+                <p class="card-text">{{source.description}}</p>
+                <a href="#" class="btn btn-primary">Button</a>
+              </div>
+        </div>
+        {%endfor%}
+    </ul>
+
 {%endblock page_content%}

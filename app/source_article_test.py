@@ -11,7 +11,7 @@ class SourceArticleTest(unittest.TestCase):
         '''
          Set up method that will run before every Test
         '''
-        self.new_source = Source('abc-news','Abc News','A wordl class news channel','http://www,abc.com')
+        self.new_source = Source('abc-news','Abc News','A wordl class news channel')
 
 
     def test_instance(self):
