@@ -6,6 +6,10 @@
         News app
     {%endif%}
 {%endblock title%}
+{% block scripts%}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock scripts%}
 {%block content%}
     <div class="container">
         {%block page_content%}

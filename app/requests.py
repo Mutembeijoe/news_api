@@ -1,6 +1,7 @@
 from app import app
 import urllib.request,json
 from .models import source,article
+from maya import parse
 
 Source = source.Source
 Article = article.Article
@@ -48,7 +49,7 @@ def get_specific_source(source_id):
             title = article['title']
             author = article['author']
             image_url = article['urlToImage']
-            date_published= article['publishedAt']
+            date_published= parse(article['publishedAt']).datetime()
             article_url= article['url']
 
             if image_url:
