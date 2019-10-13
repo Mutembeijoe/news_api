@@ -14,3 +14,4 @@ moment = Moment(app)
 app.config.from_pyfile('config.py')
 app.config.from_object(DevConfig)
 from app import views
+from app import error
