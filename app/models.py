@@ -1,3 +1,10 @@
+class Source:
+    def __init__(self, id, name, description):
+        self.id = id
+        self.name = name
+        self.desc = description
+
+
 class Article:
     def __init__(self, title, author, image_url, date_published, article_url, source):
         self.title = title

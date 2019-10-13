@@ -1,16 +1,19 @@
-from app import app
+# from app import a
 import urllib.request,json
-from .models import source,article
+from .models import Source, Article
 from maya import parse
 
-Source = source.Source
-Article = article.Article
+# Getting api key, all sources url and source url
+api_key = None
+all_sources_url = None
+source_url = None
 
 
-
-all_sources_url = app.config['ALL_SOURCES_URL']
-source_url = app.config['SOURCE_URL']
-api_key = app.config['API_KEY']
+def configure_request(app):
+    global api_key, all_sources_url, source_url
+    all_sources_url = app.config['ALL_SOURCES_URL']
+    source_url = app.config['SOURCE_URL']
+    api_key = app.config['API_KEY']
 
 
 def get_sources():

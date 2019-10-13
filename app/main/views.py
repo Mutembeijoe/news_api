@@ -1,14 +1,13 @@
-from app import app
 from flask import render_template
-from .requests import get_sources,get_specific_source
+from . import main
+from ..requests import get_sources,get_specific_source
 
-@app.route('/')
+@main.route('/')
 def index():
     sources_list = get_sources()
     title = 'Sources'
     return render_template('index.html', sources = sources_list, title= title)
-
-@app.route('/source/<name>')
+@main.route('/source/<name>')
 def source(name):
     articles_list = get_specific_source(name)
     if len(articles_list) > 0:

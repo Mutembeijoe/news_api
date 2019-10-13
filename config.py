@@ -1,3 +1,4 @@
+import os
 class Config:
     '''
     General app configurations
@@ -6,6 +7,7 @@ class Config:
 
     SOURCE_URL = ' https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
 
+    API_KEY = os.environ.get('MOVIE_API_KEY')
 
 class ProdConfig(Config):
     '''
@@ -26,3 +28,8 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig
+}
