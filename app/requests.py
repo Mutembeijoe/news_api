@@ -49,11 +49,12 @@ def get_specific_source(source_id):
             title = article['title']
             author = article['author']
             image_url = article['urlToImage']
+            source = article['source']
             date_published= parse(article['publishedAt']).datetime()
             article_url= article['url']
 
             if image_url:
-                new_article = Article(title, author, image_url, date_published, article_url)
+                new_article = Article(title, author, image_url, date_published, article_url,source)
                 new_list.append(new_article)
 
         articles_list = new_list

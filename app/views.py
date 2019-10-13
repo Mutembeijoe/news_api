@@ -6,11 +6,14 @@ from .requests import get_sources,get_specific_source
 def index():
     sources_list = get_sources()
     title = 'Sources'
-    print(sources_list[0].__dict__)
     return render_template('index.html', sources = sources_list, title= title)
 
 @app.route('/source/<name>')
 def source(name):
     articles_list = get_specific_source(name)
+    if len(articles_list) > 0:
+        source = articles_list[0].source['name']
+    else:
+        source = None
     title = f"{name} articles"
-    return render_template('source_articles.html', articles = articles_list, title=title)
+    return render_template('source_articles.html', articles = articles_list, title=title, source = source)

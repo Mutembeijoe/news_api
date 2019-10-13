@@ -1,5 +1,10 @@
 {% extends 'base.html'%}
 {% block page_content%}
+{% if source %}
+    <h1>{{source}}</h1>
+{%else%}
+    <h1>No news items found</h1>
+{% endif%}
     <div class="row">
         {% for article in articles %}
             <div class="col-lg-6 my-3">
